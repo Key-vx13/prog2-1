@@ -66,16 +66,23 @@ acc_train_history=[]
 acc_test_history=[]
 
 for k in range(n_epochs):
-    print(f'epoch{k+1}/{n_epochs}')
+    print(f'epoch{k+1}/{n_epochs}',end=': ',flush=True)
 
+    time_start=time.time()
     loss_train=models.train(model,dataloader_train,loss_fn,optimizer)
-    print(f'train loss:{loss_train}')
+    time_end=time.time()
+    print(f'train loss:{loss_train:.3f}({time_end-time_start:.1f}s)',end=', ')
 
+    time_start=time.time()
     loss_test=models.train(model,dataloader_train,loss_fn)
-    print(f'test loss:{loss_test}')
+    time_end=time.time()
+    print(f'test loss:{loss_test:.3f}({time_end-time_start:.1f}s)',end=', ')
 
+    
     acc_train = models.test_accuracy(model, dataloader_train)
     print(f'test accuracy:{acc_train*100:.3f}%')
+
+
     acc_test = models.test_accuracy(model,dataloader_test)
     print(f'test accuracy:{acc_test*100:.3f}%')
 
