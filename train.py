@@ -78,9 +78,10 @@ for k in range(n_epochs):
     time_end=time.time()
     print(f'test loss:{loss_test:.3f}({time_end-time_start:.1f}s)',end=', ')
 
-    
+    time_start=time.time()
     acc_train = models.test_accuracy(model, dataloader_train)
-    print(f'test accuracy:{acc_train*100:.3f}%')
+    time_end=time.time()
+    print(f'test accuracy:{acc_train*100:.3f}3%({time_end-time_start:.1f}s)',end=', ')
 
 
     acc_test = models.test_accuracy(model,dataloader_test)
