@@ -102,3 +102,5 @@ plt.ylabel('loss')
 plt.legend()
 plt.grid()
 plt.show()
+
+"hennkou"
